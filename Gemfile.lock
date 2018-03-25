@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    awesome_print (1.8.0)
+    byebug (10.0.1)
+    dotenv (2.2.1)
+    httparty (0.16.1)
+      multi_xml (>= 0.5.2)
+    multi_xml (0.6.0)
+    rumbda (1.1.0)
+      bundler (= 1.9.9)
+      thor (~> 0.19)
+    thor (0.20.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  bundler (= 1.9.9)
+  byebug
+  dotenv
+  httparty
+  rumbda
