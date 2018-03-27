@@ -1,15 +1,15 @@
 begin
   require 'dotenv'
   Dotenv.load
-rescue
+rescue LoadError
 end
 
 begin
   require 'byebug'
-rescue
+rescue LoadError
 end
 
 begin
   require 'awesome_print'
-rescue
+rescue LoadError
 end
