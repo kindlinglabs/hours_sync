@@ -40,7 +40,7 @@ user_datums.each do |user_datum|
   # Look through all the dates over the past month.  Whenever we find a TT day that has
   # no entries, look for Harvest entries for the same day and transfer them over.
 
-  for days_ago in 1..30 # 30 change to 30 once we are confident :-)
+  for days_ago in 2..30
     date = (Date.today - days_ago).strftime
 
     if tt_events[date].nil?
