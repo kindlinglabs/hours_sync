@@ -80,5 +80,9 @@ module TrackingTime
                      "&end=#{end_date_time}" \
                      "&notes=#{notes}")
     end
+
+    def delete_event(event_id:)
+      post("events/delete/#{event_id}")
+    end
   end
 end
