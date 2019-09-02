@@ -18,4 +18,11 @@ group :development do
   gem 'byebug'
   gem 'awesome_print'
   gem 'dotenv'
+  gem 'rb-readline'
+  gem 'ripl'
+  gem 'ripl-multi_line'
+  gem 'ripl-irb'
+  gem 'ripl-commands'
+  gem 'awesome_print'
+  gem 'rspec'
 end

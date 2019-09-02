@@ -1,3 +1,7 @@
+require_relative 'task'
+require_relative 'project'
+require_relative 'customer'
+
 module TrackingTime
   class Api
     include HTTParty
@@ -67,6 +71,24 @@ module TrackingTime
 
     def tasks
       get("tasks")
+    end
+
+    def my_tasks(user_id)
+      response = get("users/#{user_id}/trackables")
+      JSON.parse(response.body)["data"]["projects"].flat_map do |raw_project|
+        raw_customer = raw_project["customer"]
+        customer = raw_customer ? Customer.new(id: raw_customer["id"], name: raw_customer["name"]) : nil
+
+        project = Project.new(id: raw_project["id"], name: raw_project["name"], customer: customer)
+
+        raw_project["tasks"].map do |task|
+          Task.new(id: task["id"],
+                   name: task["name"],
+                   have_used: task["users"].any?{|user| user["id"] == user_id},
+                   num_users: task["users"].size,
+                   project: project)
+        end
+      end
     end
 
     def add_event(user_id:, task_id:, start_date_string:, start_hour: 9, duration_seconds:, notes: "")

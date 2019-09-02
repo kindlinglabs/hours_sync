@@ -1,25 +1,4 @@
-
-require 'date'
-
-require_relative './user_datum'
-require_relative './harvest/api'
-require_relative './tracking_time/api'
-
-require_relative './development_utils'
-
-# Load environment variables
-
-harvest_token = ENV['HARVEST_API_TOKEN']
-raise "missing Harvest token" if harvest_token.nil?
-
-harvest_project_id = ENV['HARVEST_PROJECT_ID']
-raise "missing Harvest project ID" if harvest_project_id.nil?
-
-user_data = ENV['USER_DATA'].split('||||')
-user_datums = user_data.map{|data| UserDatum.new(data)}
-
-tracking_time_target_task_id = ENV['TRACKING_TIME_TARGET_TASK_ID']
-raise "missing TT target task ID" if tracking_time_target_task_id.nil?
+require_relative 'hours_sync'
 
 # Get all time entries from Harvest (all users) for last 30 days
 

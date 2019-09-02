@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require_relative "hours_sync"
+
+require 'ripl'
+require 'ripl/commands'
+require 'rb-readline'
+require 'ripl/multi_line'
+
+Ripl.config[:completion] = {:readline => :ruby }
+Ripl.start(history: '.ripl-history', irbrc: nil)
